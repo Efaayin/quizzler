@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quizzler/questions.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -94,7 +96,8 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
-                bool correctAnswer = questionBank[questionNumber].questionAnswer;
+                bool correctAnswer =
+                    questionBank[questionNumber].questionAnswer;
 
                 if (scoreKeeper.length < questionBank.length) {
                   if (correctAnswer == true) {
@@ -132,7 +135,8 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 //The user picked false.
 
-                bool correctAnswer = questionBank[questionNumber].questionAnswer;
+                bool correctAnswer =
+                    questionBank[questionNumber].questionAnswer;
 
                 if (scoreKeeper.length < questionBank.length) {
                   if (correctAnswer == false) {
