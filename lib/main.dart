@@ -41,7 +41,7 @@ class _QuizPageState extends State<QuizPage> {
 
   void nextNumber() {
     setState(() {
-      if (questionNumber < (quizBrain.questionBank.length - 1)) {
+      if (questionNumber < (quizBrain.getQuestion() - 1)) {
         questionNumber++;
       }
     });
@@ -59,7 +59,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.questionBank[questionNumber].questionText,
+                quizBrain.getQuestionText(questionNumber),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -86,9 +86,9 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 //The user picked true.
                 bool correctAnswer =
-                    quizBrain.questionBank[questionNumber].questionAnswer;
+                    quizBrain.getQuestionAnswer(questionNumber);
 
-                if (scoreKeeper.length < quizBrain.questionBank.length) {
+                if (scoreKeeper.length < quizBrain.getQuestion()) {
                   if (correctAnswer == true) {
                     scoreKeeper.add(Icon(
                       Icons.check,
@@ -125,9 +125,9 @@ class _QuizPageState extends State<QuizPage> {
                 //The user picked false.
 
                 bool correctAnswer =
-                    quizBrain.questionBank[questionNumber].questionAnswer;
+                    quizBrain.getQuestionAnswer(questionNumber);
 
-                if (scoreKeeper.length < quizBrain.questionBank.length) {
+                if (scoreKeeper.length < quizBrain.getQuestion()) {
                   if (correctAnswer == false) {
                     scoreKeeper.add(Icon(
                       Icons.check,
