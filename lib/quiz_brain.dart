@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:quizzler/questions.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 
 class QuizBrain {
   int _questionNumber = 0;
