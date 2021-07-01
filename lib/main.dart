@@ -35,30 +35,26 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
 
-  void nextNumber() {
-    setState(() {
-      quizBrain.nextQuestion();
-    });
-  }
-
   void checkAnswer(bool userPickedAnswer) {
     bool correctAnswer = quizBrain.getQuestionAnswer();
 
-    if (scoreKeeper.length < quizBrain.getQuestion()) {
-      if (userPickedAnswer == correctAnswer) {
-        scoreKeeper.add(Icon(
-          Icons.check,
-          color: Colors.green,
-        ));
-      } else {
-        scoreKeeper.add(Icon(
-          Icons.close,
-          color: Colors.red,
-        ));
-      }
-    } else {}
+    setState(() {
+      if (scoreKeeper.length < quizBrain.getQuestion()) {
+        if (userPickedAnswer == correctAnswer) {
+          scoreKeeper.add(Icon(
+            Icons.check,
+            color: Colors.green,
+          ));
+        } else {
+          scoreKeeper.add(Icon(
+            Icons.close,
+            color: Colors.red,
+          ));
+        }
+      } else {}
 
-    nextNumber();
+      quizBrain.nextQuestion();
+    });
   }
 
   @override
