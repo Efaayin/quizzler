@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:quizzler/questions.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class QuizBrain {
-
   int _questionNumber = 0;
 
   List<Question> _questionBank = [
@@ -32,10 +33,12 @@ class QuizBrain {
         true),
   ];
 
+  get context => null;
+
   void nextQuestion() {
     if (_questionNumber < (_questionBank.length - 1)) {
       _questionNumber++;
-    } 
+    }
   }
 
   String getQuestionText() {
@@ -50,4 +53,7 @@ class QuizBrain {
     return _questionBank.length;
   }
 
+  void reset() {
+    _questionNumber = 0;
+  }
 }
