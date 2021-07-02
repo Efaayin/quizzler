@@ -38,8 +38,6 @@ class _QuizPageState extends State<QuizPage> {
 
   void checkAnswer(bool userPickedAnswer) {
     bool correctAnswer = quizBrain.getQuestionAnswer();
-    
-    // quizBrain.isFinished();
 
     setState(() {
       if (scoreKeeper.length < quizBrain.getQuestion()) {
@@ -54,6 +52,8 @@ class _QuizPageState extends State<QuizPage> {
             color: Colors.red,
           ));
         }
+
+        quizBrain.nextQuestion();
       } else {
         Alert(
           context: context,
@@ -61,12 +61,10 @@ class _QuizPageState extends State<QuizPage> {
           desc: 'You\'ve reached the end of the quiz.',
         ).show();
 
-        quizBrain.reset();
-
         scoreKeeper = [];
-      }
 
-      quizBrain.nextQuestion();
+        quizBrain.reset();
+      }
     });
   }
 

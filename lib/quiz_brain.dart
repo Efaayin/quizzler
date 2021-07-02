@@ -31,8 +31,6 @@ class QuizBrain {
         true),
   ];
 
-  get context => null;
-
   void nextQuestion() {
     if (_questionNumber < (_questionBank.length - 1)) {
       _questionNumber++;
